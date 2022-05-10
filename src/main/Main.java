@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Main {
     public static void main(String[] args) {
-
+/*
         Etudiant modou = new Etudiant();
         modou.setMatricule("0987");
         modou.setNom("Fall");
@@ -35,5 +35,10 @@ public class Main {
         Interne interne = new Interne();
         interne.saisie();
         System.out.println(interne);
+
+        Etudiant etudiant = new Interne();
+        etudiant.saisie();
+        */
+
     }
 }

@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
-public class Etudiant{
+public abstract class Etudiant{
     protected String matricule, nom, prenom, email;
     protected LocalDate dateNaissance;
     protected int age;
