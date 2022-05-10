@@ -72,4 +72,5 @@ public class Interne extends Etudiant {
         }while (typeBourse != 0 && typeBourse != 1);
         bourse = (typeBourse==0?20000:40000);
     }
+
 }

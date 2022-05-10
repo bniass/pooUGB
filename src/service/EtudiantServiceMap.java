@@ -1,11 +1,12 @@
 package service;
 
 import main.Main2;
+import main.Main3;
 import model.Etudiant;
 import model.Externe;
 import model.Interne;
 
-public class EtudiantService implements IEtudiant {
+public class EtudiantServiceMap implements IEtudiant {
     @Override
     public void saisie(int type) {
         Etudiant et = null;
@@ -19,24 +20,20 @@ public class EtudiantService implements IEtudiant {
             et = new Externe();
             et.saisie();
         }
-        Main2.etudiants.add(et);
+        Main3.etudiantMap.put(et.getMatricule(), et);
     }
 
     @Override
     public void displayAll() {
-        for (Etudiant e:Main2.etudiants) {
+        for (Etudiant e: Main3.etudiantMap.values()) {
             System.out.println(e);
         }
-        /*
-        for (int i = 0; i < Main2.etudiants.size(); i++) {
-            System.out.println(Main2.etudiants.get(i));
-        }*/
     }
 
     @Override
     public void displayInterns() {
         boolean exist = false;
-        for (Etudiant e:Main2.etudiants) {
+        for (Etudiant e:Main3.etudiantMap.values()) {
             if(e instanceof Interne){
                 System.out.println(e);
                 exist = true;
@@ -50,9 +47,9 @@ public class EtudiantService implements IEtudiant {
     @Override
     public void displayExterns() {
         boolean exist = false;
-        for (Etudiant e:Main2.etudiants) {
-            if(e instanceof Externe){
-                System.out.println(e);
+        for (String mat:Main3.etudiantMap.keySet()) {
+            if(Main3.etudiantMap.get(mat) instanceof Externe){
+                System.out.println(Main3.etudiantMap.get(mat));
                 exist = true;
             }
         }
@@ -64,7 +61,7 @@ public class EtudiantService implements IEtudiant {
     @Override
     public int getSumBourse() {
         int som = 0;
-        for (Etudiant e:Main2.etudiants) {
+        for (Etudiant e:Main3.etudiantMap.values()) {
             if(e instanceof Interne){
                 som += ((Interne)e).getBourse();
             }
@@ -75,7 +72,7 @@ public class EtudiantService implements IEtudiant {
     @Override
     public int getSumAide() {
         int som = 0;
-        for (Etudiant e:Main2.etudiants) {
+        for (Etudiant e:Main3.etudiantMap.values()) {
             if(e instanceof Externe){
                 som += Externe.getAide();
             }

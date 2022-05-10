@@ -3,17 +3,15 @@ package main;
 import model.Etudiant;
 import model.Externe;
 import service.EtudiantService;
+import service.EtudiantServiceMap;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
-public class Main2 {
-    public static List<Etudiant> etudiants;
+public class Main3 {
+    public static Map<String, Etudiant> etudiantMap;
     public static void main(String[] args) {
-        EtudiantService service = new EtudiantService();
-        etudiants = new ArrayList<>();
+        etudiantMap = new HashMap<>();
+        EtudiantServiceMap service = new EtudiantServiceMap();
 
         Random random = new Random();
         Scanner sc = new Scanner(System.in);
