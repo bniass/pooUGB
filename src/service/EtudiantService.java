@@ -11,9 +11,11 @@ public class EtudiantService implements IEtudiant {
         Etudiant et = null;
         if(type == 0){
             et = new Interne();
+            System.out.println("Saisie d'un interne");
             et.saisie();
         }
         else{
+            System.out.println("Saisie d'un externe");
             et = new Externe();
             et.saisie();
         }

@@ -1,6 +1,7 @@
 package main;
 
 import model.Etudiant;
+import model.Externe;
 import service.EtudiantService;
 
 import java.util.ArrayList;
@@ -14,8 +15,10 @@ public class Main2 {
         EtudiantService service = new EtudiantService();
         etudiants = new ArrayList<>();
         Random random = new Random();
-        System.out.print("Saisir le nombre d'étudiant :");
         Scanner sc = new Scanner(System.in);
+        System.out.print("Saisir le montant de l'aide pour les étudiants :");
+        Externe.setAide(sc.nextInt());
+        System.out.print("Saisir le nombre d'étudiant :");
         int n = sc.nextInt();
 
         for (int i = 0; i < n; i++) {
